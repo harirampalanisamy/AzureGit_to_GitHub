@@ -18,13 +18,14 @@ stages:
      - powershell: |
               $demojob="bleh"
               Write-Host "##vso[task.setvariable variable=Name;isOutput=true;]$demojob"
-              Write-Host "variable value is $(Name)"  
+              Write-Host "variable value is $(Name)" 
+       name: demovarname
    - job: demon
      displayName: demonjob
      dependsOn: ['demo']
      variables:
-        Name = $[dependencies.demo.outputs['setVariable.Name']]
+        Area: $[ dependencies.demo.outputs['demovarname.Name'] ]  
      steps:
      - powershell: |
-              write-host "the variable value is $(area)"
+              write-host "the variable value is $(Area)"
 
