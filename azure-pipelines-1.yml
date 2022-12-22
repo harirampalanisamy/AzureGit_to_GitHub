@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pool:
+  vmImage: windows-latest
+
+stages:
+- stage: one
+  displayName: Production
+  jobs:
+   - job: demo
+     displayName: demojob
+     steps:
+     - powershell: |
+              $demojob="bleh"
+              Write-Host "##vso[task.setvariable variable=Name;isOutput=true;]$demojob"
+              Write-Host "variable value is $(Name)"  
+   - job: demon
+     displayName: demonjob
+     dependsOn: ['demo']
+     variables:
+        $area = $[ dependencies.demo.outputs['setVariable.Name'] ]
+     steps:
+     - powershell: |
+              write-host "the variable value is $(area)"
+
