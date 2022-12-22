@@ -23,7 +23,7 @@ stages:
      displayName: demonjob
      dependsOn: ['demo']
      variables:
-        area = $[dependencies.demo.outputs['setVariable.area']]
+        Name = $[dependencies.demo.outputs['setVariable.Name']]
      steps:
      - powershell: |
               write-host "the variable value is $(area)"
