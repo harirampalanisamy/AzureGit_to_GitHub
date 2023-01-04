@@ -14,5 +14,5 @@ steps:
     targetType: 'inline'
     ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
     script: |
-      Write-Host ${{ parameters.case_sangeetha.repositoryName}}
+      Write-Host ${{ parameters.case_sangeetha.repository}}
       Write-Host ${{ parameters.case_sangeetha.component.group}}
