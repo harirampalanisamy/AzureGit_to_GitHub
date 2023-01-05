@@ -7,11 +7,11 @@ resources:
   webhooks:
     - webhook: case_sangeetha          ### Webhook alias
       connection: case_sangeetha    ### Incoming webhook service connection
-      filters: 
-        - path: repositoryName      ### JSON path in the payload
-          value: maven-releases     ### Expected value in the path provided
-        - path: action
-          value: CREATED
+      # filters: 
+      #   - path: repositoryName      ### JSON path in the payload
+      #     value: maven-releases     ### Expected value in the path provided
+      #   - path: action
+      #     value: CREATED
 
 steps:
 - task: PowerShell@2
