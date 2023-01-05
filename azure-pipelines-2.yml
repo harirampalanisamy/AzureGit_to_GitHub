@@ -10,8 +10,8 @@ resources:
       filters: 
         - path: repositoryName      ### JSON path in the payload
           value: maven-releases     ### Expected value in the path provided
-        - path: action
-          value: CREATED
+#        - path: action
+#          value: CREATED
 
 steps:
 - task: PowerShell@2
@@ -19,5 +19,5 @@ steps:
     targetType: 'inline'
     ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
     script: |
-#      Write-Host ${{ parameters.case_sangeetha.repositoryName}}
+      Write-Host ${{ parameters.case_sangeetha.repositoryName}}
 #      Write-Host ${{ parameters.case_sangeetha.component.group}}
