@@ -21,3 +21,4 @@ steps:
     script: |
       Write-Host ${{ parameters.case_sangeetha.repositoryName}}
       Write-Host ${{ parameters.case_sangeetha.action}}
+      Write-Host ${{ parameters.case_sangeetha.uri}}
