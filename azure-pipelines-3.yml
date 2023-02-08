@@ -5,8 +5,8 @@ pool: Default
 
 resources:
   webhooks:
-    - webhook: case_sangeethaa          ### Webhook alias
-      connection: case_sangeethaa    
+    - webhook: case_amol          ### Webhook alias
+      connection: case_amol_WebHook_usage    
 
 steps:
 - ${{ each value in parameters.secureFilesWebhook.listOfSecureFiles }}:
