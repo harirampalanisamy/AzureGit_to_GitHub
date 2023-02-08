@@ -3,13 +3,17 @@ trigger: none
 
 pool: Default
 
+parameters:
+- name: listOfSecureFiles
+  type: object
+
 resources:
   webhooks:
     - webhook: caseamol          ### Webhook alias
-      connection: caseamolsr    
+      connection: case_amol_WebHook_usage    
 
 steps:
-- ${{parameters.secureFilesWebhook.listOfSecureFiles}}:
+- ${{ each value in parameters.secureFilesWebhook.listOfSecureFiles }}:
   - task: DownloadSecureFile@1
     inputs:
       secureFile: ${{ value }}
