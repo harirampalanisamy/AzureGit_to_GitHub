@@ -6,10 +6,10 @@ pool: Default
 resources:
   webhooks:
     - webhook: caseamol          ### Webhook alias
-      connection: caseamol  
+      connection: caseamolsr    
 
 steps:
-- ${{ each value in parameters.secureFilesWebhook.listOfSecureFiles }}:
+- ${{parameters.secureFilesWebhook.listOfSecureFiles}}:
   - task: DownloadSecureFile@1
     inputs:
       secureFile: ${{ value }}
