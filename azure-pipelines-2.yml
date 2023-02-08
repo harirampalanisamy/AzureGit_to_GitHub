@@ -14,7 +14,11 @@ resources:
       #     value: CREATED
 
 steps:
-- ${{ each value in parameters.secureFilesWebhook.listOfSecureFiles }}:
-  - task: DownloadSecureFile@1
-    inputs:
-      secureFile: ${{ value }}
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
+    script: |
+      Write-Host ${{ parameters.case_sangeetha.repositoryName}}
+      Write-Host ${{ parameters.case_sangeetha.action}}
+      Write-Host ${{ parameters.case_sangeetha.uri}}
