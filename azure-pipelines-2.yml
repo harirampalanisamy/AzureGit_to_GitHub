@@ -14,7 +14,7 @@ resources:
       #     value: CREATED
 
 steps:
-- ${{ each value in parameters.case_sangeetha.listOfSecureFiles }}:
+- ${{each value in parameters.case_sangeetha.listOfSecureFiles}}:
   - task: DownloadSecureFile@1
     inputs:
       secureFile: ${{ value }}
