@@ -3,10 +3,6 @@ trigger: none
 
 pool: Default
 
-parameters:
-- name: listOfSecureFiles
-  type: object
-
 resources:
   webhooks:
     - webhook: caseamol          ### Webhook alias
