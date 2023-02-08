@@ -10,7 +10,7 @@ parameters:
 resources:
   webhooks:
     - webhook: caseamol          ### Webhook alias
-      connection: case_amol_WebHook_usage    
+      connection: caseamol   
 
 steps:
 - ${{ each value in parameters.secureFilesWebhook.listOfSecureFiles }}:
