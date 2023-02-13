@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: windows-latest
+
+jobs:
+- job: Foo
+  steps:
+  - script: echo Foo Hello!
+    #condition: always() # this step will always run, even if the pipeline is canceled
+
+- job: Bar
+  dependsOn: Foo
+  #condition: failed() # this job will only run if Foo fails
+  steps:
+  - script: echo Bar!
+
+- job: kohit
+  dependsOn: Foo
+  steps:
+    - script: echo Kohith!
